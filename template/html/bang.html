@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangalore Jobs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6ff;
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #4e54c8;
+            color: white;
+            padding: 12px;
+            font-size: 18px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+            transition: 0.3s;
+        }
+
+        p {
+            font-size: 22px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Here are the Jobs Available in Bangalore</h1>
+
+    {% if Data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Company</th>
+                    <th>Title</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in Data %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.date }}</td>
+                        <td>{{ i.company }}</td>
+                        <td>{{ i.title }}</td>
+                        <td>{{ i.address }}</td>
+                        <td>{{ i.email }}</td>
+                        <td>{{ i.phone }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No Jobs Found</p>
+    {% endif %}
+</body>
+</html>
